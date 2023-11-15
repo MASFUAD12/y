@@ -70,8 +70,6 @@ echo -e "[ ${green}INFO${NC} ] Preparing the install file"
 apt install git curl -y >/dev/null 2>&1
 echo -e "[ ${green}INFO${NC} ] installation file is ready"
 sleep 2
-echo -ne "[ ${green}INFO${NC} ] Check your permission : "
-sleep 3
 
 # // cek old script
 if [[ -r /etc/xray/domain ]]; then
