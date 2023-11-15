@@ -348,13 +348,13 @@ echo -e "┌──────────────────────�
 echo -e " \E[41;1;39m           >>> Install Source <<<        \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1 
-wget -q https://raw.githubusercontent.com/FadlyNotNot/prem/main/tools/arzsource.sh && chmod +x arzsource.sh && ./arzsource.sh
+wget -q https://raw.githubusercontent.com/MASFUAD12/y/main/tools/arzsource.sh && chmod +x arzsource.sh && ./arzsource.sh
 #install ssh-vpn
 echo -e "┌─────────────────────────────────────────┐"
 echo -e " \E[41;1;39m          >>> Install SSH WS <<<        \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1
-wget -q https://raw.githubusercontent.com/FadlyNotNot/prem/main/tools/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget -q https://raw.githubusercontent.com/MASFUAD12/y/main/tools/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 
 
 #install ins-xray
@@ -362,14 +362,14 @@ echo -e "┌──────────────────────�
 echo -e " \E[41;1;39m            >>> Install Xray <<<         \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1 
-wget -q https://raw.githubusercontent.com/FadlyNotNot/prem/main/tools/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget -q https://raw.githubusercontent.com/MASFUAD12/y/main/tools/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 
 #install ins-xray
 echo -e "┌─────────────────────────────────────────┐"
 echo -e " \E[41;1;39m            >>> Install BR <<<           \E[0m$NC"
 echo -e "└─────────────────────────────────────────┘"
 sleep 1 
-wget -q https://raw.githubusercontent.com/FadlyNotNot/prem/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget -q https://raw.githubusercontent.com/MASFUAD12/y/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 
 # // Download Data
 echo -e "${GREEN}Download Data${NC}"
@@ -510,7 +510,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/FadlyNotNot/prem/main/version  )
+serverV=$( curl -sS https://raw.githubusercontent.com/MASFUAD12/y/main/version  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
