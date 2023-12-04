@@ -48,11 +48,11 @@ cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
 cpu_usage+=" %"
 tram=$( free -m | awk 'NR==2 {print $2}' )
 uram=$( free -m | awk 'NR==2 {print $3}' )
-uphours=`uptime -p | awk '{print $2,$3}' | cut -d , -f1`
-upminutes=`uptime -p | awk '{print $4,$5}' | cut -d , -f1`
-uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
-cekup=`uptime -p | grep -ow "day"`
-
+#uphours=`uptime -p | awk '{print $2,$3}' | cut -d , -f1`
+#upminutes=`uptime -p | awk '{print $4,$5}' | cut -d , -f1`
+#uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
+#cekup=`uptime -p | grep -ow "day"`
+SERONLINE=$(uptime -p | cut -d " " -f 2-10000)
 
 # // Clear
 clear
@@ -100,58 +100,52 @@ resv2r="${green}ON${NC}"
 else
 resv2r="${red}OFF${NC}"
 fi
-
+####INFOAKUN
+vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
+let vla=$vlx/2
+vmc=$(grep -c -E "^### " "/etc/xray/config.json")
+let vma=$vmc/2
+ssh1="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+trx=$(grep -c -E "^#! " "/etc/xray/config.json")
+let trb=$trx/2
+ssx=$(grep -c -E "^#ss# " "/etc/xray/config.json")
+let ssa=$ssx/2
 IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
 
 clear
-echo -e " ┌─────────────────────────────────────────────────────┐" | lolcat
-echo -e " │                    FV STORES                   │" | lolcat
-echo -e " └─────────────────────────────────────────────────────┘" | lolcat
+echo -e " ┌─────────────────────────────────────────────────────┐" 
+echo -e " │                   BLUEBERRY TUNNEL                  │" 
+echo -e " └─────────────────────────────────────────────────────┘" 
 echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e "${BICyan} │  ${BIGreen}Premium Version   :  ${BIGreen}Multiport XRAY${NC}" 
-if [ "$cekup" = "day" ]; then
-echo -e " ${BICyan}│  ${BIGreen}System Uptime     :  ${BIGreen}$uphours $upminutes $uptimecek${NC}"
-else
-echo -e " ${BICyan}│  ${BIGreen}System Uptime     :  ${BIGreen}$uphours $upminutes ${NC}"
-fi
-echo -e " ${BICyan}│  ${BIGreen}OS VPS            :  "${BIGreen}`hostnamectl | grep "Operating System" | cut -d ' ' -f5-` $NC
-echo -e " ${BICyan}│  ${BIGreen}Memory Usage      :  ${BIGreen}$uram MB/ $tram MB${NC}"
-echo -e " ${BICyan}│  ${BIGreen}CPU Usage         :  ${BIGreen}$cpu_usage ${NC}"
-echo -e " ${BICyan}│  ${BIGreen}Current Domain    :  ${BIGreen}$(cat /etc/xray/domain)${NC}"
-echo -e " ${BICyan}│  ${BIGreen}IP VPS            :  ${BIGreen}$IPVPS${NC}"
-echo -e " ${BICyan}│  ${BIGreen}ISP VPS           :  ${BIGreen}$ISPVPS${NC}"
-echo -e " ${BICyan}│  ${BIGreen}REGION            :  ${BIGreen}$(curl -s ipinfo.io/timezone )${NC}"
-echo -e " ${BICyan}│  ${BIGreen}DATE&TIME         :  ${BIGreen}$( date -d "0 days" +"%d-%m-%Y | %X" ) ${NC}"
+echo -e " ${BICyan}│  ${BIBlue}System Uptime     :  ${BIBlue}$SERONLINE ${NC}"
+echo -e " ${BICyan}│  ${BIBlue}OS VPS            :  "${BIBlue}`hostnamectl | grep "Operating System" | cut -d ' ' -f5-` $NC
+echo -e " ${BICyan}│  ${BIBlue}Memory Usage      :  ${BIBlue}$uram MB/ $tram MB${NC}"
+echo -e " ${BICyan}│  ${BIBlue}CPU Usage         :  ${BIBlue}$cpu_usage ${NC}"
+echo -e " ${BICyan}│  ${BIBlue}Domain            :  ${BIBlue}$(cat /etc/xray/domain)${NC}"
+echo -e " ${BICyan}│  ${BIBlue}IP VPS            :  ${BIBlue}$IPVPS${NC}"
+echo -e " ${BICyan}│  ${BIBlue}ISP VPS           :  ${BIBlue}$ISPVPS${NC}"
+echo -e " ${BICyan}│  ${BIBlue}REGION            :  ${BIBlue}$(curl -s ipinfo.io/timezone )${NC}"
+echo -e " ${BICyan}│  ${BIBlue}DATE&TIME         :  ${BIBlue}$( date -d "0 days" +"%d-%m-%Y | %X" ) ${NC}"
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
-echo -e " ┌─────────────────────────────────────────────────────┐" | lolcat
-echo -e " │    ${BIBlue} SSH ${NC}: $ressh"" ${BIBlue} NGINX ${NC}: $resngx"" ${BIBlue}  XRAY ${NC}: $resv2r"" ${BIBlue} TROJAN ${NC}: $resv2r   │"
-echo -e " │    ${BIBlue}          DROPBEAR ${NC}: $resdbr" "${BIBlue} SSH-WS ${NC}: $ressshws             │"
-echo -e " └─────────────────────────────────────────────────────┘" | lolcat
-echo -e " ┌─────────────────────────────────────────────────────┐" | lolcat
-echo -e "     ${BICyan}[${BIGreen}1${BICyan}]${BIGreen} MENU SSH${NC}                  ${BICyan}[${BIGreen}6${BICyan}]${BIGreen} BACKUP/RESTORE${NC}" 
-echo -e "     ${BICyan}[${BIGreen}2${BICyan}]${BIGreen} MENU VMESS${NC}                ${BICyan}[${BIGreen}7${BICyan}]${BIGreen} SETTINGS${NC}"    
-echo -e "     ${BICyan}[${BIGreen}3${BICyan}]${BIGreen} MENU VLESS${NC}                ${BICyan}[${BIGreen}8${BICyan}]${BIGreen} INFO-SCRIPT${NC}"    
-echo -e "     ${BICyan}[${BIGreen}4${BICyan}]${BIGreen} MENU TROJAN${NC}               ${BICyan}[${BIGreen}9${BICyan}]${BIGreen} INFO-SERVER${NC}" 
-echo -e "     ${BICyan}[${BIGreen}5${BICyan}]${BIGreen} SHADOWSOCKS${NC}               ${BICyan}[${BIGreen}x${BICyan}]${BIGreen} EXIT MAIN MENU${NC}"     
-echo -e " └─────────────────────────────────────────────────────┘" | lolcat
-DATE=$(date +'%d %B %Y')
-datediff() {
-    d1=$(date -d "$1" +%s)
-    d2=$(date -d "$2" +%s)
-    echo -e "     │  Expiry In     : $(( (d1 - d2) / 86400 )) Days " | lolcat
-}
-mai="datediff "$Exp" "$DATE""
-echo -e "     ┌─────────────────────────────────────┐" | lolcat
-echo -e "     │  Version       : $(cat /opt/.ver) Last Version " | lolcat
-echo -e "     │  User          : $Name " | lolcat
-if [ $exp \< 9000 ];
-then
-echo -e "       $BICyan│$NC License      : ${GREEN}$sisa_hari$NC Days Tersisa $NC"
-else
-    datediff "$Exp" "$DATE"
-fi;
-echo -e "     └─────────────────────────────────────┘" | lolcat
+echo -e " ┌─────────────────────────────────────────────────────┐" 
+echo -e " ${Blue}│${NC} $y SSH$NC     $y VMESS$NC     $y VLESS$NC     $y TROJAN$NC     $y SHADOW  $NC${Blue}│$NC"
+echo -e " ${Blue}│${NC}   $ssh1" "        $vma" "         $vla" "          $trb" "         $ssa" "        $NC${Blue}│$NC"
+echo -e " └─────────────────────────────────────────────────────┘" 
+echo -e " ┌─────────────────────────────────────────────────────┐" 
+echo -e " │ ${BIBlue} SSH ${NC}: $ressh"" ${BIBlue} NGINX ${NC}: $resngx"" ${BIBlue}  XRAY ${NC}: $resv2r"" ${BIBlue} TROJAN ${NC}: $resv2r  │"
+echo -e " │    ${BIBlue}         DROPBEAR ${NC}: $resdbr" "${BIBlue} SSH-WS ${NC}: $ressshws            │"
+echo -e " └─────────────────────────────────────────────────────┘" 
+echo -e " ┌─────────────────────────────────────────────────────┐" 
+echo -e "     ${BICyan}[${BIBlue}1${BICyan}]${BIBlue} MENU SSH${NC}                  ${BICyan}[${BIBlue}6${BICyan}]${BIBlue} BACKUP/RESTORE${NC}" 
+echo -e "     ${BICyan}[${BIBlue}2${BICyan}]${BIBlue} MENU VMESS${NC}                ${BICyan}[${BIBlue}7${BICyan}]${BIBlue} SETTINGS${NC}"    
+echo -e "     ${BICyan}[${BIBlue}3${BICyan}]${BIBlue} MENU VLESS${NC}                ${BICyan}[${BIBlue}8${BICyan}]${BIBlue} INFO-SCRIPT${NC}"    
+echo -e "     ${BICyan}[${BIBlue}4${BICyan}]${BIBlue} MENU TROJAN${NC}               ${BICyan}[${BIBlue}9${BICyan}]${BIBlue} INFO-SERVER${NC}" 
+echo -e "     ${BICyan}[${BIBlue}5${BICyan}]${BIBlue} SHADOWSOCKS${NC}               ${BICyan}[${BIBlue}x${BICyan}]${BIBlue} EXIT MAIN MENU${NC}"     
+echo -e " └─────────────────────────────────────────────────────┘" 
+#echo -e "      ┌──────────────────────────────────────────┐" 
+echo -e "        ${p}▁ ${Blue}▂ ${cy}▃ ${Lgreen}▄ ${y}▅ ${r}▆ ${RED}█$NC ${y}KEEP MUMETS$NC ${RED}█$NC ${r}▆ ${y}▅ ${Lgreen}▄ ${cy}▃ ${Blue}▂ ${p}▁$NC"
+#echo -e "      └──────────────────────────────────────────┘" 
 echo
 read -p " Select menu : " opt
 echo -e ""
