@@ -1,6 +1,5 @@
 #!/bin/bash
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+
 #########################
 
 # // Export Banner Status Information
@@ -20,7 +19,7 @@ export UNDERLINE="\e[4m"
 #sleep 3
 #echo -e "
 #"
-date
+
 echo ""
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Checking... "
