@@ -64,7 +64,7 @@ echo "$localip $(hostname)" >> /etc/hosts
 fi
 mkdir -p /etc/xray
 
-echo -e "${tyblue} Welcome To FV STORES SCRIPT ${NC} "
+echo -e "${tyblue} Welcome To DEGAN SCRIPT ${NC} "
 sleep 2
 echo -e "[ ${green}INFO${NC} ] Preparing the install file"
 apt install git curl -y >/dev/null 2>&1
@@ -520,7 +520,7 @@ gg="AM"
 fi
 curl -sS ifconfig.me > /etc/myipvps
 echo  " "
-echo "=====================-[ Cobek Sawit Tunnel ]-===================="
+echo "========================-[ WONG MUMETS ]-======================="
 echo  ""
 echo  "------------------------------------------------------------"
 echo  ""
