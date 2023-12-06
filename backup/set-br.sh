@@ -16,60 +16,6 @@ export BOLD="\e[1m"
 export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
-BURIQ () {
-    curl -sS https://raw.githubusercontent.com/FadlyNotNot/prem/main/izin > /root/tmp
-    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
-    for user in "${data[@]}"
-    do
-    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
-    d1=(`date -d "$exp" +%s`)
-    d2=(`date -d "$biji" +%s`)
-    exp2=$(( (d1 - d2) / 86400 ))
-    if [[ "$exp2" -le "0" ]]; then
-    echo $user > /etc/.$user.ini
-    else
-    rm -f /etc/.$user.ini > /dev/null 2>&1
-    fi
-    done
-    rm -f /root/tmp
-}
-
-MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/prem/main/izin | grep $MYIP | awk '{print $2}')
-echo $Name > /usr/local/etc/.$Name.ini
-CekOne=$(cat /usr/local/etc/.$Name.ini)
-
-Bloman () {
-if [ -f "/etc/.$Name.ini" ]; then
-CekTwo=$(cat /etc/.$Name.ini)
-    if [ "$CekOne" = "$CekTwo" ]; then
-        res="Expired"
-    fi
-else
-res="Permission Accepted..."
-fi
-}
-
-PERMISSION () {
-    MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/FadlyNotNot/prem/main/izin | awk '{print $4}' | grep $MYIP)
-    if [ "$MYIP" = "$IZIN" ]; then
-    Bloman
-    else
-    res="Permission Denied!"
-    fi
-    BURIQ
-}
-PERMISSION
-if [ -f /home/needupdate ]; then
-red "Your script need to update first !"
-exit 0
-elif [ "$res" = "Permission Accepted..." ]; then
-echo -ne
-else
-red "Permission Denied!"
-exit 0
-fi
 #fi
 #sleep 3
 #echo -e "
@@ -85,7 +31,7 @@ curl -fsSL https://rclone.org/install.sh | bash > /dev/null 2>&1
 printf "q\n" | rclone config > /dev/null 2>&1
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading rclone config ... "
-wget -q -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/FadlyNotNot/prem/main/backup/rclone.conf"
+wget -q -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/MASFUAD12/y/main/backup/rclone.conf"
 git clone https://github.com/magnific0/wondershaper.git &> /dev/null
 cd wondershaper
 sleep 1
@@ -108,8 +54,8 @@ sleep 1
 echo -e "[ ${green}INFO${NC} ] Creating service... "
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Downloading files... "
-wget -q -O /usr/bin/backup "https://raw.githubusercontent.com/FadlyNotNot/prem/main/backup/backup.sh" && chmod +x /usr/bin/backup
-wget -q -O /usr/bin/restore "https://raw.githubusercontent.com/FadlyNotNot/prem/main/backup/restore.sh" && chmod +x /usr/bin/restore
+wget -q -O /usr/bin/backup "https://raw.githubusercontent.com/MASFUAD12/y/main/backup/backup.sh" && chmod +x /usr/bin/backup
+wget -q -O /usr/bin/restore "https://raw.githubusercontent.com/MASFUAD12/y/main/backup/restore.sh" && chmod +x /usr/bin/restore
 
 service cron restart > /dev/null 2>&1
 
