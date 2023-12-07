@@ -31,7 +31,7 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 fi
 echo ""
 version=$(cat /opt/.ver)
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/prem/main/version )
+ver=$( curl https://raw.githubusercontent.com/MASFUAD12/y/main/version )
 clear
 # CEK UPDATE
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
@@ -39,7 +39,7 @@ Info1="$BIWhite($version)${Font_color_suffix}"
 Info2="$BIWhite(LATEST VERSION)${Font_color_suffix}"
 Error="Version $BIWhite[$ver]${Font_color_suffix} available${Red_font_prefix}[Please Update]${Font_color_suffix}"
 version=$(cat /opt/.ver)
-new_version=$( curl https://raw.githubusercontent.com/${GitUser}/prem/main/newversion | grep $version )
+new_version=$( curl https://raw.githubusercontent.com/MASFUAD12/y/main/newversion | grep $version )
 #Status Version
 if [ $version = $new_version ]; then
 sts="${Info2}"
@@ -74,7 +74,7 @@ read -p "      PLEASE CHOOSE 1 or x : " option2
 case $option2 in
 1)
 version=$(cat /opt/.ver)
-new_version=$( curl https://raw.githubusercontent.com/${GitUser}/kucing/main/newversion | grep $version )
+new_version=$( curl https://raw.githubusercontent.com/MASFUAD12/y/main/newversion | grep $version )
 if [ $version = $new_version ]; then
 clear
 echo ""
@@ -121,7 +121,7 @@ sleep 1
 echo ""
 # UPDATE RUN-UPDATE
 cd /usr/bin
-wget -O run-update "https://raw.githubusercontent.com/${GitUser}/prem/main/options/update.sh"
+wget -O run-update "https://raw.githubusercontent.com/MASFUAD12/y/main/options/update.sh"
 chmod +x run-update
 # RUN UPDATE
 echo ""
@@ -140,34 +140,34 @@ echo -e "└──────────────────────�
 echo -e "\e[0;32mNew Version Downloading started!\e[0m"
 sleep 3
 cd /usr/bin
-wget -q -O /usr/bin/add-ws "https://raw.githubusercontent.com/FadlyNotNot/prem/main/add-ws.sh"
-wget -q -O /usr/bin/add-ssws "https://raw.githubusercontent.com/FadlyNotNot/prem/main/add-ssws.sh"
-wget -q -O /usr/bin/add-vless "https://raw.githubusercontent.com/FadlyNotNot/prem/main/add-vless.sh"
-wget -q -O /usr/bin/add-tr "https://raw.githubusercontent.com/FadlyNotNot/prem/main/add-tr.sh"
-wget -q -O /usr/bin/usernew "https://raw.githubusercontent.com/FadlyNotNot/prem/main/usernew.sh"
-wget -q -O /usr/bin/autoreboot "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/autoreboot.sh"
-wget -q -O /usr/bin/restart "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/restart.sh"
-wget -q -O /usr/bin/tendang "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/tendang.sh"
-wget -q -O /usr/bin/clearlog "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/clearlog.sh"
-wget -q -O /usr/bin/running "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/running.sh"
+wget -q -O /usr/bin/add-ws "https://raw.githubusercontent.com/MASFUAD12/y/main/add-ws.sh"
+wget -q -O /usr/bin/add-ssws "https://raw.githubusercontent.com/MASFUAD12/y/main/add-ssws.sh"
+wget -q -O /usr/bin/add-vless "https://raw.githubusercontent.com/MASFUAD12/y/main/add-vless.sh"
+wget -q -O /usr/bin/add-tr "https://raw.githubusercontent.com/MASFUAD12/y/main/add-tr.sh"
+wget -q -O /usr/bin/usernew "https://raw.githubusercontent.com/MASFUAD12/y/main/usernew.sh"
+wget -q -O /usr/bin/autoreboot "https://raw.githubusercontent.com/MASFUAD12/y/main/options/autoreboot.sh"
+wget -q -O /usr/bin/restart "https://raw.githubusercontent.com/MASFUAD12/y/main/options/restart.sh"
+wget -q -O /usr/bin/tendang "https://raw.githubusercontent.com/MASFUAD12/y/main/options/tendang.sh"
+wget -q -O /usr/bin/clearlog "https://raw.githubusercontent.com/MASFUAD12/y/main/options/clearlog.sh"
+wget -q -O /usr/bin/running "https://raw.githubusercontent.com/MASFUAD12/y/main/options/running.sh"
 #wget -q -O /usr/bin/cek-trafik "https://raw.githubusercontent.com/asw/kucing2/main/options/cek-trafik.sh"
-wget -q -O /usr/bin/cek-bandwidth "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/cek-bandwidth.sh"
-wget -q -O /usr/bin/limitspeed "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/limitspeed.sh"
-wget -q -O /usr/bin/menu-vless "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu-vless.sh"
-wget -q -O /usr/bin/menu-vmess "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu-vmess.sh"
-wget -q -O /usr/bin/menu-ss "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu-ss.sh"
-wget -q -O /usr/bin/menu-trojan "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu-trojan.sh"
-wget -q -O /usr/bin/menu-ssh "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu-ssh.sh"
-wget -q -O /usr/bin/menu-backup "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu-backup.sh"
-wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu.sh"
-wget -q -O /usr/bin/webmin "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/webmin.sh"
-wget -q -O /usr/bin/xp "https://raw.githubusercontent.com/FadlyNotNot/prem/main/xp.sh"
-wget -q -O /usr/bin/update "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/update.sh"
+wget -q -O /usr/bin/cek-bandwidth "https://raw.githubusercontent.com/MASFUAD12/y/main/options/cek-bandwidth.sh"
+wget -q -O /usr/bin/limitspeed "https://raw.githubusercontent.com/MASFUAD12/y/main/options/limitspeed.sh"
+wget -q -O /usr/bin/menu-vless "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu-vless.sh"
+wget -q -O /usr/bin/menu-vmess "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu-vmess.sh"
+wget -q -O /usr/bin/menu-ss "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu-ss.sh"
+wget -q -O /usr/bin/menu-trojan "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu-trojan.sh"
+wget -q -O /usr/bin/menu-ssh "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu-ssh.sh"
+wget -q -O /usr/bin/menu-backup "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu-backup.sh"
+wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu.sh"
+wget -q -O /usr/bin/webmin "https://raw.githubusercontent.com/MASFUAD12/y/main/options/webmin.sh"
+wget -q -O /usr/bin/xp "https://raw.githubusercontent.com/MASFUAD12/y/main/xp.sh"
+wget -q -O /usr/bin/update "https://raw.githubusercontent.com/MASFUAD12/y/main/options/update.sh"
 #wget -q -O /usr/bin/menu-theme "https://raw.githubusercontent.com/asw/kucing/main/menu/menu-theme.sh"
-wget -q -O /usr/bin/info "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/info.sh"
-wget -q -O /usr/bin/infoserv "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/infoserv.sh"
-wget -q -O /usr/bin/menu-set "https://raw.githubusercontent.com/FadlyNotNot/prem/main/menu/menu-set.sh"
-wget -q -O /usr/bin/about "https://raw.githubusercontent.com/FadlyNotNot/prem/main/options/about.sh"
+wget -q -O /usr/bin/info "https://raw.githubusercontent.com/MASFUAD12/y/main/options/info.sh"
+wget -q -O /usr/bin/infoserv "https://raw.githubusercontent.com/MASFUAD12/y/main/options/infoserv.sh"
+wget -q -O /usr/bin/menu-set "https://raw.githubusercontent.com/MASFUAD12/y/main/menu/menu-set.sh"
+wget -q -O /usr/bin/about "https://raw.githubusercontent.com/MASFUAD12/y/main/options/about.sh"
 chmod +x /usr/bin/add-ws
 chmod +x /usr/bin/add-ssws
 chmod +x /usr/bin/add-vless
@@ -204,7 +204,7 @@ echo -e "│                 PROSES UPDATE                   │" | lolcat
 echo -e "└─────────────────────────────────────────────────┘" | lolcat
 echo -e "\e[0;32mDownloaded successfully!\e[0m"
 echo ""
-ver=$( curl https://raw.githubusercontent.com/${GitUser}/prem/main/version )
+ver=$( curl https://raw.githubusercontent.com/MASFUAD12/y/main/version )
 sleep 1
 clear
 echo -e ""
@@ -238,7 +238,7 @@ echo -e "│                 SCRIPT UPDATED                  │" | lolcat
 echo -e "└─────────────────────────────────────────────────┘" | lolcat
 echo ""
 echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                   FV STORES                       │" | lolcat
+echo -e "│                                                   │" | lolcat
 echo -e "└─────────────────────────────────────────────────┘" | lolcat
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
