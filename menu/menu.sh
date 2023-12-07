@@ -116,7 +116,7 @@ ISPVPS=$( curl -s ipinfo.io/org )
 
 clear
 echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC" 
-echo -e " ${IBlue│${GBlue}                     DEGAN TUNNEL                    ${IBlue}│$NC" 
+echo -e " ${IBlue}│${GBlue}                     DEGAN TUNNEL                    ${IBlue}│$NC" 
 echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
 echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC"
 echo -e "   ${BIYellow}System Uptime     :  ${ICyan}$SERONLINE ${NC}"
