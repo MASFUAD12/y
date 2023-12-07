@@ -138,8 +138,8 @@ echo -e "  ${BIYellow} SSH ${NC}: $ressh"" ${BIYellow} NGINX ${NC}: $resngx"" ${
 echo -e "     ${BIYellow}         DROPBEAR ${NC}: $resdbr" "${BIYellow} SSH-WS ${NC}: $ressshws"            
 echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
 echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC"
-echo -e "     ${BICyan}[${BIYellow}1${BICyan}]${BIYellow} MENU SSH${NC}                  ${BICyan}[${BIYellow}6${BICyan}]${BIYellow} BACKUP/RESTORE${NC}" 
-echo -e "     ${BICyan}[${BIYellow}2${BICyan}]${BIYellow} MENU VMESS${NC}                ${BICyan}[${BIYellow}7${BICyan}]${BIYellow} SETTINGS${NC}"    
+echo -e "     ${BICyan}[${BIYellow}1${BICyan}]${BIYellow} MENU SSH${NC}                  ${BICyan}[${BIYellow}6${BICyan}]${BIYellow} SETTING${NC}" 
+echo -e "     ${BICyan}[${BIYellow}2${BICyan}]${BIYellow} MENU VMESS${NC}                ${BICyan}[${BIYellow}7${BICyan}]${BIYellow} BACKUP/RESTORE${NC}"    
 echo -e "     ${BICyan}[${BIYellow}3${BICyan}]${BIYellow} MENU VLESS${NC}                ${BICyan}[${BIYellow}8${BICyan}]${BIYellow} INFO-SCRIPT${NC}"    
 echo -e "     ${BICyan}[${BIYellow}4${BICyan}]${BIYellow} MENU TROJAN${NC}               ${BICyan}[${BIYellow}9${BICyan}]${BIYellow} INFO-SERVER${NC}" 
 echo -e "     ${BICyan}[${BIYellow}5${BICyan}]${BIYellow} SHADOWSOCKS${NC}               ${BICyan}[${BIYellow}x${BICyan}]${BIYellow} EXIT MAIN MENU${NC}"     
@@ -156,8 +156,8 @@ case $opt in
 3) clear ; menu-vless ;;
 4) clear ; menu-trojan ;;
 5) clear ; menu-ss ;;
-6) clear ; menu-backup ;;
-7) clear ; menu-set ;;
+6) clear ; menu-set ;;
+7) clear ; menu-backup ;;
 8) clear ; info ;;
 9) clear ; infoserv ;;
 99) clear ; update ;;
