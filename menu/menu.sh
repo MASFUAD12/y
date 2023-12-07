@@ -4,7 +4,7 @@ BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green
 BIYellow='\033[1;93m'     # Yellow
-BIBlue='\033[1;94m'       # Blue
+BIBlue='\033[0;94m'       # Blue
 BIPurple='\033[1;95m'     # Purple
 BICyan='\033[1;96m'       # Cyan
 BIWhite='\033[1;97m'      # White
@@ -16,6 +16,7 @@ IRed='\033[0;91m'         # Red
 IGreen='\033[0;92m'       # Green
 IYellow='\033[0;93m'      # Yellow
 IBlue='\033[0;94m'        # Blue
+GBlue='\033[0;44m'
 IPurple='\033[0;95m'      # Purple
 ICyan='\033[0;96m'        # Cyan
 IWhite='\033[0;97m'       # White
@@ -114,35 +115,35 @@ IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
 
 clear
-echo -e " ┌─────────────────────────────────────────────────────┐" 
-echo -e " │                   BLUEBERRY TUNNEL                  │" 
-echo -e " └─────────────────────────────────────────────────────┘" 
-echo -e "${BICyan} ┌─────────────────────────────────────────────────────┐${NC}"
-echo -e " ${BICyan}│  ${BIBlue}System Uptime     :  ${BIBlue}$SERONLINE ${NC}"
-echo -e " ${BICyan}│  ${BIBlue}OS VPS            :  "${BIBlue}`hostnamectl | grep "Operating System" | cut -d ' ' -f5-` $NC
-echo -e " ${BICyan}│  ${BIBlue}Memory Usage      :  ${BIBlue}$uram MB/ $tram MB${NC}"
-echo -e " ${BICyan}│  ${BIBlue}CPU Usage         :  ${BIBlue}$cpu_usage ${NC}"
-echo -e " ${BICyan}│  ${BIBlue}Domain            :  ${BIBlue}$(cat /etc/xray/domain)${NC}"
-echo -e " ${BICyan}│  ${BIBlue}IP VPS            :  ${BIBlue}$IPVPS${NC}"
-echo -e " ${BICyan}│  ${BIBlue}ISP VPS           :  ${BIBlue}$ISPVPS${NC}"
-echo -e " ${BICyan}│  ${BIBlue}REGION            :  ${BIBlue}$(curl -s ipinfo.io/timezone )${NC}"
-echo -e " ${BICyan}│  ${BIBlue}DATE&TIME         :  ${BIBlue}$( date -d "0 days" +"%d-%m-%Y | %X" ) ${NC}"
-echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
-echo -e " ┌─────────────────────────────────────────────────────┐" 
-echo -e " ${Blue}│${NC} $y SSH$NC     $y VMESS$NC     $y VLESS$NC     $y TROJAN$NC     $y SHADOW  $NC${Blue}│$NC"
-echo -e " ${Blue}│${NC}   $ssh1" "        $vma" "         $vla" "          $trb" "         $ssa" "        $NC${Blue}│$NC"
-echo -e " └─────────────────────────────────────────────────────┘" 
-echo -e " ┌─────────────────────────────────────────────────────┐" 
-echo -e " │ ${BIBlue} SSH ${NC}: $ressh"" ${BIBlue} NGINX ${NC}: $resngx"" ${BIBlue}  XRAY ${NC}: $resv2r"" ${BIBlue} TROJAN ${NC}: $resv2r  │"
-echo -e " │    ${BIBlue}         DROPBEAR ${NC}: $resdbr" "${BIBlue} SSH-WS ${NC}: $ressshws            │"
-echo -e " └─────────────────────────────────────────────────────┘" 
-echo -e " ┌─────────────────────────────────────────────────────┐" 
-echo -e "     ${BICyan}[${BIBlue}1${BICyan}]${BIBlue} MENU SSH${NC}                  ${BICyan}[${BIBlue}6${BICyan}]${BIBlue} BACKUP/RESTORE${NC}" 
-echo -e "     ${BICyan}[${BIBlue}2${BICyan}]${BIBlue} MENU VMESS${NC}                ${BICyan}[${BIBlue}7${BICyan}]${BIBlue} SETTINGS${NC}"    
-echo -e "     ${BICyan}[${BIBlue}3${BICyan}]${BIBlue} MENU VLESS${NC}                ${BICyan}[${BIBlue}8${BICyan}]${BIBlue} INFO-SCRIPT${NC}"    
-echo -e "     ${BICyan}[${BIBlue}4${BICyan}]${BIBlue} MENU TROJAN${NC}               ${BICyan}[${BIBlue}9${BICyan}]${BIBlue} INFO-SERVER${NC}" 
-echo -e "     ${BICyan}[${BIBlue}5${BICyan}]${BIBlue} SHADOWSOCKS${NC}               ${BICyan}[${BIBlue}x${BICyan}]${BIBlue} EXIT MAIN MENU${NC}"     
-echo -e " └─────────────────────────────────────────────────────┘" 
+echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC" 
+echo -e " ${IBlue│${GBlue}                     DEGAN TUNNEL                    ${IBlue}│$NC" 
+echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
+echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC"
+echo -e "   ${BIYellow}System Uptime     :  ${ICyan}$SERONLINE ${NC}"
+echo -e "   ${BIYellow}OS VPS            :  "${ICyan}`hostnamectl | grep "Operating System" | cut -d ' ' -f5-` $NC
+echo -e "   ${BIYellow}Memory Usage      :  ${ICyan}$uram MB/ $tram MB${NC}"
+echo -e "   ${BIYellow}CPU Usage         :  ${ICyan}$cpu_usage ${NC}"
+echo -e "   ${BIYellow}Domain            :  ${ICyan}$(cat /etc/xray/domain)${NC}"
+echo -e "   ${BIYellow}IP VPS            :  ${ICyan}$IPVPS${NC}"
+echo -e "   ${BIYellow}ISP VPS           :  ${ICyan}$ISPVPS${NC}"
+echo -e "   ${BIYellow}REGION            :  ${ICyan}$(curl -s ipinfo.io/timezone )${NC}"
+echo -e "   ${BIYellow}DATE&TIME         :  ${ICyan}$( date -d "0 days" +"%d-%m-%Y | %X" ) ${NC}"
+echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
+echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC"
+echo -e "   ${BIYellow} SSH$NC     ${BIYellow} VMESS$NC     ${BIYellow} VLESS$NC     ${BIYellow} TROJAN$NC     ${BIYellow} SHADOW  $NC${Blue}$NC"
+echo -e "     $ssh1" "        $vma" "         $vla" "          $trb" "         $ssa" "        $NC${Blue}$NC"
+echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
+echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐${NC}"
+echo -e "  ${BIYellow} SSH ${NC}: $ressh"" ${BIYellow} NGINX ${NC}: $resngx"" ${BIYellow}  XRAY ${NC}: $resv2r"" ${BIYellow} TROJAN ${NC}: $resv2r"
+echo -e "     ${BIYellow}         DROPBEAR ${NC}: $resdbr" "${BIYellow} SSH-WS ${NC}: $ressshws"            
+echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
+echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC"
+echo -e "     ${BICyan}[${BIYellow}1${BICyan}]${BIYellow} MENU SSH${NC}                  ${BICyan}[${BIYellow}6${BICyan}]${BIYellow} BACKUP/RESTORE${NC}" 
+echo -e "     ${BICyan}[${BIYellow}2${BICyan}]${BIYellow} MENU VMESS${NC}                ${BICyan}[${BIYellow}7${BICyan}]${BIYellow} SETTINGS${NC}"    
+echo -e "     ${BICyan}[${BIYellow}3${BICyan}]${BIYellow} MENU VLESS${NC}                ${BICyan}[${BIYellow}8${BICyan}]${BIYellow} INFO-SCRIPT${NC}"    
+echo -e "     ${BICyan}[${BIYellow}4${BICyan}]${BIYellow} MENU TROJAN${NC}               ${BICyan}[${BIYellow}9${BICyan}]${BIYellow} INFO-SERVER${NC}" 
+echo -e "     ${BICyan}[${BIYellow}5${BICyan}]${BIYellow} SHADOWSOCKS${NC}               ${BICyan}[${BIYellow}x${BICyan}]${BIYellow} EXIT MAIN MENU${NC}"     
+echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
 #echo -e "      ┌──────────────────────────────────────────┐" 
 echo -e "        ${p}▁ ${Blue}▂ ${cy}▃ ${Lgreen}▄ ${y}▅ ${r}▆ ${RED}█$NC ${y}KEEP MUMETS$NC ${RED}█$NC ${r}▆ ${y}▅ ${Lgreen}▄ ${cy}▃ ${Blue}▂ ${p}▁$NC"
 #echo -e "      └──────────────────────────────────────────┘" 
