@@ -40,12 +40,12 @@ export UNDERLINE="\e[4m"
 clear
 cekray=`cat /root/log-install.txt | grep -ow "XRAY" | sort | uniq`
 if [ "$cekray" = "XRAY" ]; then
-domen=`cat /etc/xray/domain`
+domen=$(cat /etc/xray/domain)
 else
-domen=`cat /etc/v2ray/domain`
+domen=$(cat /etc/v2ray/domain)
 fi
-portsshws=`cat /root/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}'`
-wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
+portsshws="$(cat /root/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}')"
+wsssl="$(cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}')"
 
 echo -e "┌─────────────────────────────────────────────────┐" | lolcat
 echo -e "│               CREATE SSH ACCOUNT                │" | lolcat
@@ -56,17 +56,17 @@ read -p "Max IP         : " iplimit
 read -p "Expired (Days) : " masaaktif
 
 IP=$(curl -sS ifconfig.me);
-ossl=`cat /root/log-install.txt | grep -w "OpenVPN" | cut -f2 -d: | awk '{print $6}'`
-opensh=`cat /root/log-install.txt | grep -w "OpenSSH" | cut -f2 -d: | awk '{print $1}'`
-db=`cat /root/log-install.txt | grep -w "Dropbear" | cut -f2 -d: | awk '{print $1,$2}'`
+ossl="$(cat /root/log-install.txt | grep -w "OpenVPN" | cut -f2 -d: | awk '{print $6}')"
+opensh="$(cat /root/log-install.txt | grep -w "OpenSSH" | cut -f2 -d: | awk '{print $1}')"
+db="$(cat /root/log-install.txt | grep -w "Dropbear" | cut -f2 -d: | awk '{print $1,$2}')"
 ssl="$(cat /root/log-install.txt | grep -w "Stunnel5" | cut -d: -f2)"
 sqd="$(cat /root/log-install.txt | grep -w "Squid" | cut -d: -f2)"
 ovpn="$(netstat -nlpt | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 ovpn2="$(netstat -nlpu | grep -i openvpn | grep -i 0.0.0.0 | awk '{print $4}' | cut -d: -f2)"
 
-OhpSSH=`cat /root/log-install.txt | grep -w "OHP SSH" | cut -d: -f2 | awk '{print $1}'`
-OhpDB=`cat /root/log-install.txt | grep -w "OHP DBear" | cut -d: -f2 | awk '{print $1}'`
-OhpOVPN=`cat /root/log-install.txt | grep -w "OHP OpenVPN" | cut -d: -f2 | awk '{print $1}'`
+OhpSSH="$(cat /root/log-install.txt | grep -w "OHP SSH" | cut -d: -f2 | awk '{print $1}')"
+OhpDB="$(cat /root/log-install.txt | grep -w "OHP DBear" | cut -d: -f2 | awk '{print $1}')"
+OhpOVPN="$(cat /root/log-install.txt | grep -w "OHP OpenVPN" | cut -d: -f2 | awk '{print $1}')"
 
 sleep 1
 #limitip
@@ -99,8 +99,8 @@ echo -e "Dropbear     : $db"
 echo -e "SSH-WS       : $portsshws" 
 echo -e "SSH WS SSL   : $wsssl" 
 echo -e "SSL/TLS      : $ssl"         
-echo -e "OVPN TCP     : http://$domain:89/tcp.ovpn"
-echo -e "OVPN UDP     : http://$domain:89/udp.ovpn"
+echo -e "OVPN TCP     : http://$domen:89/tcp.ovpn"
+echo -e "OVPN UDP     : http://$domen:89/udp.ovpn"
 echo -e "BadVpn       : 7300"      
 echo -e ""  
 echo -e "─────────────────────────────────────────────────" | lolcat
