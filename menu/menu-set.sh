@@ -5,6 +5,7 @@ BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green
 BIYellow='\033[1;93m'     # Yellow
 BIBlue='\033[1;94m'       # Blue
+GBlue='\033[1;44m'
 BIPurple='\033[1;95m'     # Purple
 BICyan='\033[1;96m'       # Cyan
 BIWhite='\033[1;97m'      # White
@@ -45,27 +46,28 @@ export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
 clear
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                  MENU SETTINGS                  │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
-echo -e " ┌───────────────────────────────────────────────┐" | lolcat
-echo -e "   ${BICyan}[${BIGreen}1${BICyan}]${BIGreen}  ADD Host/Domain${NC}"
-echo -e "   ${BICyan}[${BIGreen}2${BICyan}]${BIGreen}  Renew CertXRAY${NC}"
-echo -e "   ${BICyan}[${BIGreen}3${BICyan}]${BIGreen}  Check Running${NC}"
-echo -e "   ${BICyan}[${BIGreen}4${BICyan}]${BIGreen}  Change Banner SSH${NC} "
-echo -e "   ${BICyan}[${BIGreen}5${BICyan}]${BIGreen}  Info-Bandwidth${NC}"
-echo -e "   ${BICyan}[${BIGreen}6${BICyan}]${BIGreen}  Restart${NC}"
-echo -e "   ${BICyan}[${BIGreen}7${BICyan}]${BIGreen}  Auto Reboot${NC}"
-echo -e "   ${BICyan}[${BIGreen}8${BICyan}]${BIGreen}  Reboot${NC}"
-echo -e "   ${BICyan}[${BIGreen}9${BICyan}]${BIGreen}  SpeedTest${NC}"
-echo -e "   ${BICyan}[${BIGreen}10${BICyan}]${BIGreen} Limit Speed${NC}"
-echo -e "   ${BICyan}[${BIGreen}11${BICyan}]${BIGreen} Webmin${NC}"
-echo -e "   ${BICyan}[${BIGreen}12${BICyan}]${BIGreen} Update Script${NC}"
-echo -e "   ${BICyan}[${BIGreen}13${BICyan}]${BIGreen} Tendang User Mullog${NC}"
-echo -e "   ${BICyan}[${BIGreen}14${BICyan}]${BIGreen} About SCRIPT${NC}"
-echo -e "   ${BICyan}[${BIGreen}0${BICyan}]${BIGreen}  Back To Menu${NC}"
-echo -e "   ${BICyan}[${BIGreen}x${BICyan}]${BIGreen}  Exit${NC}"
-echo -e " └───────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e " ${GBlue}                  MENU SETTINGS                  ${NC}" 
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e " ${BIBlue}┌───────────────────────────────────────────────┐${NC}" 
+echo -e "   ${BIYellow}[${BIGreen}01${BIYellow}]${BICyan} ADD Host/Domain${NC}"
+echo -e "   ${BIYellow}[${BIGreen}02${BIYellow}]${BICyan} Renew CertXRAY${NC}"
+echo -e "   ${BIYellow}[${BIGreen}03${BIYellow}]${BICyan} Check Running${NC}"
+echo -e "   ${BIYellow}[${BIGreen}04${BIYellow}]${BICyan} Change Banner SSH${NC} "
+echo -e "   ${BIYellow}[${BIGreen}05${BIYellow}]${BICyan} Info-Bandwidth${NC}"
+echo -e "   ${BIYellow}[${BIGreen}06${BIYellow}]${BICyan} Restart${NC}"
+echo -e "   ${BIYellow}[${BIGreen}07${BIYellow}]${BICyan} Auto Reboot${NC}"
+echo -e "   ${BIYellow}[${BIGreen}08${BIYellow}]${BICyan} Reboot${NC}"
+echo -e "   ${BIYellow}[${BIGreen}09${BIYellow}]${BICyan} SpeedTest${NC}"
+echo -e "   ${BIYellow}[${BIGreen}10${BIYellow}]${BICyan} Limit Speed${NC}"
+echo -e "   ${BIYellow}[${BIGreen}11${BIYellow}]${BICyan} Webmin${NC}"
+echo -e "   ${BIYellow}[${BIGreen}12${BIYellow}]${BICyan} Update Script${NC}"
+echo -e "   ${BIYellow}[${BIGreen}13${BIYellow}]${BICyan} Tendang User Mullog${NC}"
+echo -e "   ${BIYellow}[${BIGreen}14${BIYellow}]${BICyan} About SCRIPT${NC}"
+echo -e ""
+echo -e "   ${BIYellow}[${BIGreen}0${BIYellow}]${BICyan}  Back To Menu${NC}"
+echo -e "   ${BIYellow}[${BIGreen}x${BIYellow}]${BICyan}  Exit${NC}"
+echo -e " ${BIBlue}└───────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -p "  Select menu :  "  opt
 echo -e   ""
