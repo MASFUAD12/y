@@ -56,6 +56,7 @@ read -p "Max IP         : " iplimit
 read -p "Expired (Days) : " masaaktif
 
 IP=$(curl -sS ifconfig.me);
+domain=$(cat /etc/xray/domain);
 ossl="$(cat /root/log-install.txt | grep -w "OpenVPN" | cut -f2 -d: | awk '{print $6}')"
 opensh="$(cat /root/log-install.txt | grep -w "OpenSSH" | cut -f2 -d: | awk '{print $1}')"
 db="$(cat /root/log-install.txt | grep -w "Dropbear" | cut -f2 -d: | awk '{print $1,$2}')"
@@ -94,18 +95,18 @@ echo -e "Slowdns      : 53, 5300"
 echo -e "Udp Custom   : 1-65535"
 echo -e "Port ssl/tls : 443, 441, 445, 777"
 echo -e "Port non tls : 8880, 109, 143, 80"   
-echo -e "OpenSSH      : $opensh"
-echo -e "Dropbear     : $db" 
-echo -e "SSH-WS       : $portsshws" 
-echo -e "SSH WS SSL   : $wsssl" 
-echo -e "SSL/TLS      : $ssl"         
-echo -e "OVPN TCP     : http://$domen:89/tcp.ovpn"
-echo -e "OVPN UDP     : http://$domen:89/udp.ovpn"
-echo -e "BadVpn       : 7300"      
+echo -e "OpenSSH      : 22"
+echo -e "Dropbear     : 109, 143" 
+echo -e "SSH-WS       : 80" 
+echo -e "SSH WS SSL   : 443" 
+echo -e "SSL/TLS      : 447, 777"         
+echo -e "OVPN TCP     : http://$domain:89/tcp.ovpn"
+echo -e "OVPN UDP     : http://$domain:89/udp.ovpn"
+echo -e "BadVpn       : 7100-7300"      
 echo -e ""  
 echo -e "─────────────────────────────────────────────────" | lolcat
 echo -e "Payload WS"
-echo -e "GET / HTTP/1.1[crlf]Host: $domen[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]"
+echo -e "GET / HTTP/1.1[crlf]Host: $domain[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]"
 echo -e "─────────────────────────────────────────────────" | lolcat
 echo -e "Payload WSS"
 echo -e "GET wss://[host] HTTP/1.1[crlf]Host: bug.com[crlf]Connection: Arz-Alive[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]"
