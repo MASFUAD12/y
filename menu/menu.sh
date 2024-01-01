@@ -104,11 +104,12 @@ fi
 ####INFOAKUN
 ssh1="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 # TOTAL ACC CREATE VMESS WS
-vmess=$(grep -c -E "^### " "/etc/xray/config.json")
-# TOTAL ACC CREATE  VLESS WS
-vless=$(grep -c -E "^#& " "/etc/xray/config.json")
-# TOTAL ACC CREATE  TROJAN
-trojan=$(grep -c -E "^#! " "/etc/xray/config.json")
+vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
+let vless=$vlx/2
+vmc=$(grep -c -E "^### " "/etc/xray/config.json")
+let vmess=$vmc/4
+trx=$(grep -c -E "^#! " "/etc/xray/config.json")
+let trojan=$trx/2
 
 IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
