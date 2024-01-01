@@ -158,11 +158,11 @@ mkdir -p /usr/local/etc/xray
 
 # // String / Request Data
 read -p " Masukan nama Domainmu Contoh ( Fvstore222 ) : " sub
-DOMAIN=fv-store.my.id
-SUB_DOMAIN=${sub}.fv-store.my.id
-NS_DOMAIN=ns.${sub}.fv-store.my.id
-CF_ID=padliapandi459@gmail.com
-CF_KEY=1a700ef4a22e642f0ea8d43420bb0b1237589
+DOMAIN=hanifunk.my.id
+SUB_DOMAIN=${sub}.hanifunk.my.id
+NS_DOMAIN=ns.${sub}.hanifunk.my.id
+CF_ID=hanipp959@gmail.com
+CF_KEY=bd00f8f059180f2604f34aac0dfeef0ceddbd
 set -euo pipefail
 IP=$(curl -sS ifconfig.me);
 echo "Updating DNS for ${SUB_DOMAIN}..."
