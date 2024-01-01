@@ -67,50 +67,49 @@ stat=-f7
 fi
 ssh=$(service ssh status | grep active | cut -d ' ' $stat)
 if [ "$ssh" = "active" ]; then
-ressh="${green}ON${NC}"
+ressh="${BIGreen}ON${NC}"
 else
-ressh="${red}OFF${NC}"
+ressh="${BIRed}OFF${NC}"
 fi
 sshstunel=$(service stunnel5 status | grep active | cut -d ' ' $stat)
 if [ "$sshstunel" = "active" ]; then
-resst="${green}ON${NC}"
+resst="${BIGreen}ON${NC}"
 else
-resst="${red}OFF${NC}"
+resst="${BIRed}OFF${NC}"
 fi
 sshws=$(service ws-stunnel status | grep active | cut -d ' ' $stat)
 if [ "$sshws" = "active" ]; then
-ressshws="${green}ON${NC}"
+ressshws="${BIGreen}ON${NC}"
 else
-ressshws="${red}OFF${NC}"
+ressshws="${BIRed}OFF${NC}"
 fi
 ngx=$(service nginx status | grep active | cut -d ' ' $stat)
 if [ "$ngx" = "active" ]; then
-resngx="${green}ON${NC}"
+resngx="${BIGreen}ON${NC}"
 else
-resngx="${red}OFF${NC}"
+resngx="${BIRed}OFF${NC}"
 fi
 dbr=$(service dropbear status | grep active | cut -d ' ' $stat)
 if [ "$dbr" = "active" ]; then
-resdbr="${green}ON${NC}"
+resdbr="${BIGreen}ON${NC}"
 else
-resdbr="${red}OFF${NC}"
+resdbr="${BIRed}OFF${NC}"
 fi
 v2r=$(service xray status | grep active | cut -d ' ' $stat)
 if [ "$v2r" = "active" ]; then
-resv2r="${green}ON${NC}"
+resv2r="${BIGreen}ON${NC}"
 else
-resv2r="${red}OFF${NC}"
+resv2r="${BIRed}OFF${NC}"
 fi
 ####INFOAKUN
-vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
-let vla=$vlx/2
-vmc=$(grep -c -E "^### " "/etc/xray/config.json")
-let vma=$vmc/2
 ssh1="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-trx=$(grep -c -E "^#! " "/etc/xray/config.json")
-let trb=$trx/2
-ssx=$(grep -c -E "^#ss# " "/etc/xray/config.json")
-let ssa=$ssx/2
+# TOTAL ACC CREATE VMESS WS
+vmess=$(grep -c -E "^### " "/etc/xray/config.json")
+# TOTAL ACC CREATE  VLESS WS
+vless=$(grep -c -E "^#& " "/etc/xray/config.json")
+# TOTAL ACC CREATE  TROJAN
+trojan=$(grep -c -E "^#! " "/etc/xray/config.json")
+
 IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
 
@@ -130,22 +129,23 @@ echo -e "   ${BIYellow}REGION            :  ${ICyan}$(curl -s ipinfo.io/timezone
 echo -e "   ${BIYellow}DATE&TIME         :  ${ICyan}$( date -d "0 days" +"%d-%m-%Y | %X" ) ${NC}"
 echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
 echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC"
-echo -e "   ${BIYellow} SSH$NC     ${BIYellow} VMESS$NC     ${BIYellow} VLESS$NC     ${BIYellow} TROJAN$NC     ${BIYellow} SHADOW  $NC${Blue}$NC"
-echo -e "     $ssh1" "        $vma" "         $vla" "          $trb" "         $ssa" "        $NC${Blue}$NC"
+echo -e "   ${BIYellow}   SSH        VMESS        VLESS        TROJAN $NC"
+echo -e "       $ssh1" "          $vmess" "           $vless" "           $trojan" "  $NC"
 echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
 echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐${NC}"
 echo -e "  ${BIYellow} SSH ${NC}: $ressh"" ${BIYellow} NGINX ${NC}: $resngx"" ${BIYellow}  XRAY ${NC}: $resv2r"" ${BIYellow} TROJAN ${NC}: $resv2r"
 echo -e "     ${BIYellow}         DROPBEAR ${NC}: $resdbr" "${BIYellow} SSH-WS ${NC}: $ressshws"            
 echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
 echo -e " ${IBlue}┌─────────────────────────────────────────────────────┐$NC"
-echo -e "     ${BICyan}[${BIYellow}1${BICyan}]${BIYellow} MENU SSH${NC}                  ${BICyan}[${BIYellow}6${BICyan}]${BIYellow} SETTING${NC}" 
-echo -e "     ${BICyan}[${BIYellow}2${BICyan}]${BIYellow} MENU VMESS${NC}                ${BICyan}[${BIYellow}7${BICyan}]${BIYellow} BACKUP/RESTORE${NC}"    
-echo -e "     ${BICyan}[${BIYellow}3${BICyan}]${BIYellow} MENU VLESS${NC}                ${BICyan}[${BIYellow}8${BICyan}]${BIYellow} INFO-SCRIPT${NC}"    
-echo -e "     ${BICyan}[${BIYellow}4${BICyan}]${BIYellow} MENU TROJAN${NC}               ${BICyan}[${BIYellow}9${BICyan}]${BIYellow} INFO-SERVER${NC}" 
-echo -e "     ${BICyan}[${BIYellow}5${BICyan}]${BIYellow} SHADOWSOCKS${NC}               ${BICyan}[${BIYellow}x${BICyan}]${BIYellow} EXIT MAIN MENU${NC}"     
+echo -e "     ${BICyan}[${BIGreen}1${BICyan}]${BIYellow} MENU SSH${NC}                  ${BICyan}[${BIGreen}5${BICyan}]${BIYellow} SETTING${NC}" 
+echo -e "     ${BICyan}[${BIGreen}2${BICyan}]${BIYellow} MENU VMESS${NC}                ${BICyan}[${BIGreen}6${BICyan}]${BIYellow} BACKUP/RESTORE${NC}"    
+echo -e "     ${BICyan}[${BIGreen}3${BICyan}]${BIYellow} MENU VLESS${NC}                ${BICyan}[${BIGreen}7${BICyan}]${BIYellow} INFO-SCRIPT${NC}"    
+echo -e "     ${BICyan}[${BIGreen}4${BICyan}]${BIYellow} MENU TROJAN${NC}               ${BICyan}[${BIGreen}8${BICyan}]${BIYellow} INFO-SERVER${NC}" 
+echo -e ""
+echo -e "     ${BICyan}[${BIGreen}x${BICyan}]${BIYellow} EXIT MAIN MENU${NC}"     
 echo -e " ${IBlue}└─────────────────────────────────────────────────────┘$NC"
 #echo -e "      ┌──────────────────────────────────────────┐" 
-echo -e "        ${p}▁ ${Blue}▂ ${cy}▃ ${Lgreen}▄ ${y}▅ ${r}▆ ${RED}█$NC ${y}KEEP MUMETS$NC ${RED}█$NC ${r}▆ ${y}▅ ${Lgreen}▄ ${cy}▃ ${Blue}▂ ${p}▁$NC"
+echo -e "        ${BIPurple}▁ ${BIBlue}▂ ${BICyan}▃ ${BIGreen}▄ ${BIYellow}▅ ${BIPurple}▆ ${BIRed}█$NC ${BIBlue}KEEP MUMETS$NC ${BIRed}█$NC ${BIPurple}▆ ${BIYellow}▅ ${BIGreen}▄ ${BICyan}▃ ${BIBlue}▂ ${BIPurple}▁$NC"
 #echo -e "      └──────────────────────────────────────────┘" 
 echo
 read -p " Select menu : " opt
@@ -155,11 +155,10 @@ case $opt in
 2) clear ; menu-vmess ;;
 3) clear ; menu-vless ;;
 4) clear ; menu-trojan ;;
-5) clear ; menu-ss ;;
-6) clear ; menu-set ;;
-7) clear ; menu-backup ;;
-8) clear ; info ;;
-9) clear ; infoserv ;;
+5) clear ; menu-set ;;
+6) clear ; menu-backup ;;
+7) clear ; info ;;
+8) clear ; infoserv ;;
 99) clear ; update ;;
 0) clear ; menu ;;
 x) exit ;;
