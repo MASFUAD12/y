@@ -42,9 +42,9 @@ clear
 domain=$(cat /etc/xray/domain)
 clear
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│              CREATE TROJAN ACCOUNT              │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│              CREATE TROJAN ACCOUNT              │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
 read -p "Username         : " user
 read -p "Quota (GB)       : " quota
 read -p "Max Ip login     : " iplimit
@@ -67,9 +67,9 @@ fi
 		
 		if [[ ${user_EXISTS} == '1' ]]; then
 clear
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│              CREATE TROJAN ACCOUNT              │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│              CREATE TROJAN ACCOUNT              │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
 			echo ""
 			echo "A client with the specified name was already created, please choose another name."
 			echo ""
@@ -90,9 +90,9 @@ systemctl restart xray
 trojanlink="trojan://${uuid}@${domain}:443?path=%2Ftrojan-ws&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 trojanlink1="trojan://${uuid}@${domain}:443?mode=gun&security=tls&type=grpc&serviceName=trojan-grpc&sni=${domain}#${user}"
 clear
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                  TROJAN ACCOUNT                 │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat                  
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│                  TROJAN ACCOUNT                 │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"                  
 echo -e ""                
 echo -e "Username     : $user"
 echo -e "CITY         : $(cat /root/.mycity)"
@@ -103,17 +103,17 @@ echo -e "Key          : ${uuid}"
 echo -e "Path         : /trojan-ws"
 echo -e "ServiceName  : trojan-grpc" 
 echo -e ""  
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
 echo -e "Link Ws  => ${trojanlink}"
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                 
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                 
 echo -e "Link Grpc => ${trojanlink1}"
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
 echo -e "Expired => $exp"
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" 
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" 
 echo -e ""
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                   FV STORES                       │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│                   MAS FUAD                        │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
 echo -e ""              
 read -n 1 -s -r -p "Press any key to back on menu"
 menu

@@ -47,9 +47,9 @@ fi
 portsshws="$(cat /root/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}')"
 wsssl="$(cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}')"
 
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│               CREATE SSH ACCOUNT                │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│               CREATE SSH ACCOUNT                │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
 read -p "Username       : " Login
 read -p "Password       : " Pass
 read -p "Max IP         : " iplimit
@@ -80,9 +80,9 @@ clear
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                   SSH ACCOUNT                   │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat                
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│                   SSH ACCOUNT                   │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"                
 echo -e ""
 echo -e "Username     : $Login"
 echo -e "Password     : $Pass"        
@@ -104,21 +104,21 @@ echo -e "OVPN TCP     : http://$domain:89/tcp.ovpn"
 echo -e "OVPN UDP     : http://$domain:89/udp.ovpn"
 echo -e "BadVpn       : 7100-7300"      
 echo -e ""  
-echo -e "─────────────────────────────────────────────────" | lolcat
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "Payload WS"
 echo -e "GET / HTTP/1.1[crlf]Host: $domain[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]"
-echo -e "─────────────────────────────────────────────────" | lolcat
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "Payload WSS"
 echo -e "GET wss://[host] HTTP/1.1[crlf]Host: bug.com[crlf]Connection: Arz-Alive[crlf]User-Agent: [ua][crlf]Upgrade: ws[crlf][crlf]"
-echo -e "─────────────────────────────────────────────────" | lolcat
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e ""  
-echo -e "─────────────────────────────────────────────────" | lolcat              
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"              
 echo -e "      Expired => $exp"
-echo -e "─────────────────────────────────────────────────" | lolcat
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e ""  
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                  FV STORES                   │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│                  MAS FUAD                    │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
             
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
