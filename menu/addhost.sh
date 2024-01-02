@@ -5,6 +5,7 @@ BIRed='\033[1;91m'        # Red
 BIGreen='\033[1;92m'      # Green
 BIYellow='\033[1;93m'     # Yellow
 BIBlue='\033[1;94m'       # Blue
+Gblue='\033[1;44m'
 BIPurple='\033[1;95m'     # Purple
 BICyan='\033[1;96m'       # Cyan
 BIWhite='\033[1;97m'      # White
@@ -92,9 +93,9 @@ resv2r="${green}ON${NC}"
 else
 resv2r="${red}OFF${NC}"
 fi
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
-echo -e "              ADD VPS HOST         " | lolcat
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e " ${Gblue}          ADD VPS HOST           ${NC}"
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 read -rp "Domain/Host: " -e host
 echo ""

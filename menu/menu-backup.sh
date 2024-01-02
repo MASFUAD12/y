@@ -46,15 +46,16 @@ export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
 clear
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                   BACKUP MENU                   │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
-echo -e " ┌───────────────────────────────────────────────┐" | lolcat
-echo -e "    ${BICyan}[${BIGreen}1${BICyan}]${BIGreen} Backup${NC}"
-echo -e "    ${BICyan}[${BIGreen}2${BICyan}]${BIGreen} Restore${NC}"
-echo -e "    ${BICyan}[${BIGreen}0${BICyan}]${BIGreen} Back To Menu${NC}"
-echo -e "    ${BICyan}[${BIGreen}x${BICyan}]${BIGreen} Exit${NC}"
-echo -e " └───────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│                   BACKUP MENU                   │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
+echo -e " ${BIBlue}┌───────────────────────────────────────────────┐${NC}"
+echo -e "    ${BICyan}[${BIGreen}1${BICyan}]${BIYellow} Backup${NC}"
+echo -e "    ${BICyan}[${BIGreen}2${BICyan}]${BIYellow} Restore${NC}"
+echo -e "    ${BICyan}[${BIGreen}0${BICyan}]${BIYellow} Back To Menu${NC}"
+echo -e ""
+echo -e "    ${BICyan}[${BIGreen}x${BICyan}]${BIYellow} Exit${NC}"
+echo -e " ${BIBlue}└───────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -p " Select menu :  "  opt
 echo -e ""
@@ -63,5 +64,5 @@ case $opt in
 02 | 2) clear ; restore ;;
 00 | 0) clear ; menu ;;
 x) exit ;;
-*) clear ; menu-backup ;;
+#*) clear ; menu-backup ;;
 esac
