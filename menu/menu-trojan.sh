@@ -310,7 +310,7 @@ echo -e "${BIBlue}└───────────────────�
     fi
 }
 clear
-echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
 echo -e "${BIBlue}│                    TROJAN MENU                  │${NC}"
 echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
 echo -e "${BIBlue}┌───────────────────────────────────────────────┐${NC}"
@@ -320,7 +320,7 @@ echo -e "     ${BICyan}[${BIGreen}3${BICyan}]${BIYellow} Delete Account Trojan  
 echo -e "     ${BICyan}[${BIGreen}4${BICyan}]${BIYellow} Renew Account Trojan  ${NC}    "
 echo -e "     ${BICyan}[${BIGreen}5${BICyan}]${BIYellow} Cek User Active XRAY  ${NC}   "
 echo -e "     ${BICyan}[${BIGreen}6${BICyan}]${BIYellow} Cek Detail Trojan  ${NC}    "
-echo -e ""
+echo ""
 echo -e "     ${BICyan}[${BIGreen}0${BICyan}]${BIYellow} Back To Menu${NC}"
 echo -e "     ${BICyan}[${BIGreen}x${BICyan}]${BIYellow} Exit${NC}"
 echo -e "${BIBlue}└──────────────────────────────────────────────┘${NC}"
