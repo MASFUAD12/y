@@ -48,9 +48,9 @@ fi
 tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│              CREATE VMESS ACCOUNT               │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│              CREATE VMESS ACCOUNT               │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
 read -p "Username         : " user
 read -p "Quota (GB)       : " quota
 read -p "Max Ip login     : " iplimit
@@ -72,9 +72,9 @@ fi
 
 		if [[ ${CLIENT_EXISTS} == '1' ]]; then
 clear
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│              CREATE VMESS ACCOUNT               │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat
+echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+echo -e "${BIBlue}│              CREATE VMESS ACCOUNT               │${NC}"
+echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
 			echo ""
 			echo "A client with the specified name was already created, please choose another name."
 			echo ""
@@ -216,35 +216,35 @@ vmesslink7="vmess://$(echo $ami | base64 -w 0)"
 systemctl restart xray > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
 clear
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                  VMESS ACCOUNT                  │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat              
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${BIBlue}    🐉 VMESS ACCOUNT 🐉      ${NC}"
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"              
 echo -e ""                
-echo -e "Username     : $user"
-echo -e "CITY         : $(cat /root/.mycity)"
-echo -e "ISP          : $(cat /root/.myisp)"
-echo -e "Host/IP      : $domain"
-echo -e "Port ssl/tls : 443"
-echo -e "Port non tls : 80"                                        
-echo -e "Key          : $uuid"
-echo -e "Network      : ws, grpc"
-echo -e "Path         : /vmess"
-echo -e "Path 0P0K    : /kuota-habis, /worryfree"                    
-echo -e "serviceName  : vmess-grpc"               
+echo -e "🧿 Username     : $user"
+#echo -e "CITY         : $(cat /root/.mycity)"
+#echo -e "ISP          : $(cat /root/.myisp)"
+echo -e "🧿 Host/IP      : $domain"
+echo -e "🧿 Port         : 443, 80"
+#echo -e "Port non tls : 80"                                        
+echo -e "🧿 Key          : $uuid"
+echo -e "🧿 Network      : ws, grpc"
+echo -e "🧿 Path         : /vmess"
+echo -e "🧿 Path 0P0K    : /kuota-habis, /worryfree"                    
+echo -e "🧿 serviceName  : vmess-grpc"               
 echo -e ""  
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"              
-echo -e "Link Tls  => ${vmesslink1}"
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                 
-echo -e "Link None => ${vmesslink2}"
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
-echo -e "Link Grpc => ${vmesslink5}"
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
-echo -e "Expired => $exp"
-echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"     
-echo -e ""
-echo -e "┌─────────────────────────────────────────────────┐" | lolcat
-echo -e "│                   FV STORES                       │" | lolcat
-echo -e "└─────────────────────────────────────────────────┘" | lolcat     
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"              
+echo -e "🧿 Link Tls  => ${vmesslink1}"
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                 
+echo -e "🧿 Link None => ${vmesslink2}"
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
+echo -e "🧿 Link Grpc => ${vmesslink5}"
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
+echo -e "🧿 Expired => $exp"
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"     
+#echo -e ""
+#echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
+#echo -e "${BIBlue}│                   MAS FUAD                        │${NC}"
+#echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"     
 echo -e ""      
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
