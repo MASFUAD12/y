@@ -145,13 +145,13 @@ rm -fr /usr/local/bin/xray
 rm -fr /usr/local/bin/stunnel
 rm -fr /usr/local/bin/stunnel5
 rm -fr /etc/nginx
-rm -fr /var/lib/scrz-prem/
+rm -fr /var/lib/cobek/
 rm -fr /usr/bin/xray
 rm -fr /etc/xray
 rm -fr /usr/local/etc/xray
 # // Making Directory 
 mkdir -p /etc/nginx
-mkdir -p /var/lib/scrz-prem/
+mkdir -p /var/lib/cobek/
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /usr/local/etc/xray
@@ -196,7 +196,7 @@ echo "Host : $SUB_DOMAIN"
 echo "NS : $NS_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 echo $NS_DOMAIN > /root/nsdomain
-echo "IP=$SUB_DOMAIN" > /var/lib/scrz-prem/ipvps.conf
+echo "IP=$SUB_DOMAIN" > /var/lib/cobek/ipvps.conf
 sleep 1
 yellow() { echo -e "\\033[33;1m${*}\\033[0m"; }
 yellow "Domain added.."
@@ -255,13 +255,13 @@ rm -fr /usr/local/bin/xray
 rm -fr /usr/local/bin/stunnel
 rm -fr /usr/local/bin/stunnel5
 rm -fr /etc/nginx
-rm -fr /var/lib/scrz-prem/
+rm -fr /var/lib/cobek/
 rm -fr /usr/bin/xray
 rm -fr /etc/xray
 rm -fr /usr/local/etc/xray
 # // Making Directory 
 mkdir -p /etc/nginx
-mkdir -p /var/lib/scrz-prem/
+mkdir -p /var/lib/cobek/
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
 mkdir -p /usr/local/etc/xray
@@ -300,7 +300,7 @@ mkdir -p /etc/cobek/cache/vmess-ws-orbit1
 
 # // Input Domain TO VPS
 echo "$domain" > /etc/${Auther}/domain.txt
-echo "IP=$domain" > /var/lib/scrz-prem/ipvps.conf
+echo "IP=$domain" > /var/lib/cobek/ipvps.conf
 echo "$domain" > /root/domain
 echo $nsdomain >/etc/xray/dns
 echo $nsdomain >/root/nsdomain
@@ -370,7 +370,10 @@ sleep 1
 wget -q https://raw.githubusercontent.com/MASFUAD12/y/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 
 # // Download Data
-echo -e "${GREEN}Download Data${NC}"
+#echo -e "${GREEN}Download Data${NC}"
+echo -e "┌─────────────────────────────────────────┐"
+echo -e " \E[41;1;39m            >>> Download Data <<<           \E[0m$NC"
+echo -e "└─────────────────────────────────────────┘"
 wget -q -O /usr/bin/usernew "https://raw.githubusercontent.com/MASFUAD12/y/main/usernew.sh"
 wget -q -O /usr/bin/add-ws "https://raw.githubusercontent.com/MASFUAD12/y/main/add-ws.sh"
 wget -q -O /usr/bin/add-ssws "https://raw.githubusercontent.com/MASFUAD12/y/main/add-ssws.sh"
