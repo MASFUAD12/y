@@ -1,64 +1,57 @@
 #!/bin/bash
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
-# Getting
+# ═══════════════════════════════════════════════════════════════════
+# (C) Copyright 2023 Oleh Tekiro & cobekXvA
+# ═══════════════════════════════════════════════════════════════════
+# Nama        : AutoScript VPN
+# Info          : Rungkad
+# Dibuat Pada : 07-12-2023 ( ........ )
+# OS Support  : Ubuntu & Debian
+# Owner       : Tekiro & cobekXvA
+# Telegram    : https://t.me/cobekINFO
+# Github       : github.com/Ryuchiii
+# ═══════════════════════════════════════════════════════════════════
+
+IP=$(curl -s ipv4.icanhazip.com)
+HOST="$(cat /etc/xray/domain)"
+DATEVPS=$(date +"%d-%B-%Y")
+ISPVPS=$(cat /etc/xray/isp)
+CITY=$(cat /etc/xray/city)
+
+# ═══════════════
+# // Allow Access
+# ═══════════════
 clear
-echo "This Feature Can Only Be Used According To Vps Data With This Autoscript"
-echo "Please input link to your vps data backup file."
-echo "You can check it on your email if you run backup data vps before."
+echo "Silahkan Masukin Link Backupnya"
 read -rp "Link File: " -e url
 wget -O backup.zip "$url"
 unzip backup.zip
 rm -f backup.zip
 sleep 1
 echo Start Restore
-rm -f /root/backup/backup.zip &> /dev/null
-sleep 1
 cd /root/backup
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring passwd data..."
-sleep 1
-cp /root/backup/passwd /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring group data..."
-sleep 1
-cp /root/backup/group /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring shadow data..."
-sleep 1
-cp /root/backup/shadow /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring gshadow data..."
-sleep 1
-cp /root/backup/gshadow /etc/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring chap-secrets data..."
-sleep 1
-cp /root/backup/chap-secrets /etc/ppp/ &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring passwd1 data..."
-sleep 1
-cp /root/backup/passwd1 /etc/ipsec.d/passwd &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring ss.conf data..."
-sleep 1
-cp /root/backup/ss.conf /etc/shadowsocks-libev/ss.conf &> /dev/null
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Restoring admin data..."
-sleep 1
-cp -r /root/backup/scrz-prem /var/lib/ &> /dev/null
-cp -r /root/backup/.acme.sh /root/ &> /dev/null
-cp -r /root/backup/arzvpn /etc/ &> /dev/null
-cp -r /root/backup/xray /etc/ &> /dev/null
-cp -r /root/backup/public_html /home/vps/ &> /dev/null
-cp -r /root/backup/crontab /etc/ &> /dev/null
-cp -r /root/backup/cron.d /etc/ &> /dev/null
-rm -rf /root/backup &> /dev/null
+cp passwd /etc/
+cp group /etc/
+cp shadow /etc/
+cp gshadow /etc/
+cp -r cobek /var/lib/
+cp -r xray /etc/
+cp -r html /var/www/
+cp crontab /etc/
+cp .ssh.db /etc/ssh/
+cp .vmess.db /etc/vmess/
+cp .vless.db /etc/vless/
+cp .trojan.db /etc/trojan/
+cp .shadowsocks.db /etc/shadowsocks/
+echo -e "
+${blue}_______________________________________${NC}
+${BGX}      SUCCESSFULL RESTORE YOUR VPS     ${NC}
+${BGX}     Please Save The Following Data    ${NC}
+${blue}_______________________________________${NC}
+${putih}YOUR VPS IP : $IP${NC}
+${putih}DOMAIN      : $HOST${NC}
+${putih}DATE        : $DATEVPS${NC}
+${blue}_______________________________________${NC}
+"
 rm -rf /root/backup
-echo -e "$COLOR1│${NC}  [ ${green}INFO${NC} ] • Done... Successfully"
 rm -f backup.zip
-echo Done
 echo ""
-read -n 1 -s -r -p "   Press any key to back on menu"
-menu
