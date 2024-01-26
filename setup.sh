@@ -595,29 +595,6 @@ cat > /root/system << END
 END
 history -c
 clear
-run_notif() {
-echo -e ""
-ip_vps=$(curl ifconfig.me)
-export Ram_Total="$((mem_total / 1024))"
-export OS_Name=$( cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g' )
-TEXT="
-────────────────────────────
-⚡ <u>NOTIF INSTALL SCRIPT</u> ⚡
-────────────────────────────
-Owner     : <code>$username</code>
-Expired   : <code>$exp</code>
-IP VPS    : <code>$ip_vps</code>
-Domain    : <code>$(cat /etc/xray/domain)</code>
-Tgl & Jam : <code>$date</code>
-Total Ram : <code>$Ram_Total</code>
-Linux     : <code>$OS_Name</code>
-────────────────────────────
-<i>Notifikasi Otomatis Via</i> @fdlyvpn_ID
-'&reply_markup={"inline_keyboard":[[{"text":"⚡ ORDER SCRIPT ⚡","url":"https://t.me/fdlyvpn_ID"}]]}'
-"
-curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
-clear
-}
 echo -e ""
 echo -e "       INSTALLASI SCRIPT SUKSES      " | lolcat
 run_notif
