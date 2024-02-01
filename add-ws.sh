@@ -1,5 +1,4 @@
 #!/bin/bash
-#CRSe7en2nd
 
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
@@ -38,15 +37,12 @@ export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
 clear
-source /var/lib/scrz-prem/ipvps.conf
 if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 else
 domain=$IP
 fi
 
-tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
-none="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
 echo -e "${BIBlue}│              CREATE VMESS ACCOUNT               │${NC}"
@@ -83,8 +79,12 @@ echo -e "${BIBlue}└───────────────────�
 menu
 		fi
 	done
-
+echo -e "MASUKKAN UUID/KOSONGKAN UNTUK MENDAPATKAN UUID OTOMATIS"
+echo -e ""
+read -p "UUID/PASSWORD : " uuid
+if [[ $uuid == "" ]]; then
 uuid=$(cat /proc/sys/kernel/random/uuid)
+fi
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
@@ -221,11 +221,8 @@ echo -e "${BIBlue}    🐉 VMESS ACCOUNT 🐉      ${NC}"
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"              
 echo -e ""                
 echo -e "🧿 Username     : $user"
-#echo -e "CITY         : $(cat /root/.mycity)"
-#echo -e "ISP          : $(cat /root/.myisp)"
 echo -e "🧿 Host/IP      : $domain"
-echo -e "🧿 Port         : 443, 80"
-#echo -e "Port non tls : 80"                                        
+echo -e "🧿 Port         : 443, 80"                      
 echo -e "🧿 Key          : $uuid"
 echo -e "🧿 Network      : ws, grpc"
 echo -e "🧿 Path         : /vmess"
@@ -241,10 +238,6 @@ echo -e "🧿 Link Grpc => ${vmesslink5}"
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
 echo -e "🧿 Expired => $exp"
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"     
-#echo -e ""
-#echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
-#echo -e "${BIBlue}│                   MAS FUAD                        │${NC}"
-#echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"     
 echo -e ""      
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
