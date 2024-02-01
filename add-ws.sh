@@ -47,7 +47,13 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
 echo -e "${BIBlue}│              CREATE VMESS ACCOUNT               │${NC}"
 echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
+echo -e "MASUKKAN UUID/KOSONGKAN UNTUK MENDAPATKAN UUID OTOMATIS"
+echo -e ""
 read -p "Username         : " user
+read -p "UUID/PASSWORD : " uuid
+if [[ $uuid == "" ]]; then
+uuid=$(cat /proc/sys/kernel/random/uuid)
+fi
 read -p "Quota (GB)       : " quota
 read -p "Max Ip login     : " iplimit
 read -p "Masaaktif        : " masaaktif
