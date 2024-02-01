@@ -1,5 +1,4 @@
 #!/bin/bash
-#CRSe7en2nd
 
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
@@ -38,15 +37,6 @@ export WARNING="${RED}\e[5m"
 export UNDERLINE="\e[4m"
 
 clear
-cekray=`cat /root/log-install.txt | grep -ow "XRAY" | sort | uniq`
-if [ "$cekray" = "XRAY" ]; then
-domen=$(cat /etc/xray/domain)
-else
-domen=$(cat /etc/v2ray/domain)
-fi
-portsshws="$(cat /root/log-install.txt | grep -w "SSH Websocket" | cut -d: -f2 | awk '{print $1}')"
-wsssl="$(cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}')"
-
 echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
 echo -e "${BIBlue}│               CREATE SSH ACCOUNT                │${NC}"
 echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
@@ -80,14 +70,13 @@ clear
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
-echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
-echo -e "${BIBlue}│                   SSH ACCOUNT                   │${NC}"
-echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"                
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${BIBlue}     🐉 SSH ACCOUNT 🐉    ${NC}"
+echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                
 echo -e ""
 echo -e "Username     : $Login"
 echo -e "Password     : $Pass"        
-echo -e "CITY         : $(cat /root/.mycity)"
-echo -e "ISP          : $(cat /root/.myisp)"
+echo -e "Link Account : $domain":port@$Login":$Pass"
 echo -e "Host/IP      : $(cat /etc/xray/domain)"
 echo -e "NSDOMAIN     : $(cat /etc/xray/dns)"
 echo -e "PUBKEY       : $(cat /etc/slowdns/server.pub)"
@@ -113,13 +102,8 @@ echo -e "GET wss://[host] HTTP/1.1[crlf]Host: bug.com[crlf]Connection: Arz-Alive
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e ""  
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"              
-echo -e "      Expired => $exp"
+echo -e "🧿 Expired => $exp"
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e ""  
-echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
-echo -e "${BIBlue}│                  MAS FUAD                    │${NC}"
-echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
-            
 echo -e ""
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
