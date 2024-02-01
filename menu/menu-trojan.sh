@@ -80,7 +80,8 @@ echo -e "${BIBlue}└───────────────────�
         done
 user=$(cat /etc/xray/config.json | grep '^#!' | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 domain=$(cat /etc/xray/domain)
-uuid=$(grep "},{" /etc/xray/config.json | cut -b 17-52 | sed -n "${CLIENT_NUMBER}"p)
+uuid=$(grep -E "^### " "/etc/trojan/.trojan.db" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p)
+#uuid=$(grep "},{" /etc/xray/config.json | cut -b 17-52 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^#! " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 
