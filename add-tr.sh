@@ -1,5 +1,4 @@
 #!/bin/bash
-#CRSe7en2nd
 
 BIBlack='\033[1;90m'      # Black
 BIRed='\033[1;91m'        # Red
@@ -78,8 +77,12 @@ echo -e "${BIBlue}└───────────────────�
 			trojan-menu
 		fi
 	done
-
+echo -e "MASUKKAN UUID/KOSONGKAN UNTUK MENDAPATKAN UUID OTOMATIS"
+echo -e ""
+read -p "UUID/PASSWORD : " uuid
+if [[ $uuid == "" ]]; then
 uuid=$(cat /proc/sys/kernel/random/uuid)
+fi
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#trojanws$/a\#! '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
@@ -95,8 +98,6 @@ echo -e "${BIBlue}   🐉 TROJAN ACCOUNT 🐉      ${NC}"
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"                  
 echo -e ""                
 echo -e "🧿 Username     : $user"
-#echo -e "CITY         : $(cat /root/.mycity)"
-#echo -e "ISP          : $(cat /root/.myisp)"
 echo -e "🧿 Host/IP      : ${domain}" 
 echo -e "🧿 Port         : 443" 
 echo -e "🧿 Key          : ${uuid}" 
@@ -111,9 +112,5 @@ echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━�
 echo -e "🧿 Expired => $exp"
 echo -e "${BIBlue}━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}" 
 echo -e ""
-#echo -e "${BIBlue}┌─────────────────────────────────────────────────┐${NC}"
-#echo -e "${BIBlue}│                   MAS FUAD                        │${NC}"
-#echo -e "${BIBlue}└─────────────────────────────────────────────────┘${NC}"
-echo -e ""              
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
