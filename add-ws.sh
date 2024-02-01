@@ -50,7 +50,7 @@ echo -e "${BIBlue}└───────────────────�
 echo -e "MASUKKAN UUID/KOSONGKAN UNTUK MENDAPATKAN UUID OTOMATIS"
 echo -e ""
 read -p "Username         : " user
-read -p "UUID/PASSWORD : " uuid
+read -p "UUID/PASSWORD   : " uuid
 if [[ $uuid == "" ]]; then
 uuid=$(cat /proc/sys/kernel/random/uuid)
 fi
@@ -85,12 +85,6 @@ echo -e "${BIBlue}└───────────────────�
 menu
 		fi
 	done
-echo -e "MASUKKAN UUID/KOSONGKAN UNTUK MENDAPATKAN UUID OTOMATIS"
-echo -e ""
-read -p "UUID/PASSWORD : " uuid
-if [[ $uuid == "" ]]; then
-uuid=$(cat /proc/sys/kernel/random/uuid)
-fi
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#vmess$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config.json
